@@ -1,15 +1,121 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>图片瀑布流网页</title>
+    <script src="./tailwindcss.css"></script>
+    <!-- <script src="https://tailwindcss.com/docs/installation"></script> -->
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: Arial, sans-serif;
+        }
+
+        #container {
+            width: 100%;
+        }
+    </style>
 </head>
 
 <body>
-    <div>hello world</div>
+    <!-- <div id="waterfall-container" class="flex flex-row mx-[20px] flex-wrap ">
+        <div class="basis-1/4 ">
+            <img src="./img/animation.jpg" alt="">
+        </div>
+        <div class=" pl-[20px] basis-1/4">
+            <img src="./img/application.jpg" alt="">
+        </div>
+        <div class=" pl-[20px] basis-1/4">
+            <img src="./img/assign.jpg" alt="">
+        </div>
+        <div class=" pl-[20px] basis-1/4 ">
+            <img src="./img/animation.jpg" alt="">
+        </div>
+        <div class=" basis-1/4">
+            <img src="./img/animation.jpg" alt="">
+        </div>
+        <div class=" pl-[20px] basis-1/4">
+            <img src="./img/application.jpg" alt="">
+        </div>
+        <div class="  pl-[20px] basis-1/4">
+            <img src="./img/assign.jpg" alt="">
+        </div>
+        <div class="  pl-[20px] basis-1/4">
+            <img src="./img/animation.jpg" alt="">
+        </div>
+    </div> -->
+
+    <div id="container" class="min-w-[1150px]"></div>
 </body>
+<script>
+    var container = document.getElementById('container');
+    // console.dir(container);
+    var imgs = [];
+    var folderPath = 'img/'; // 指定文件夹路径
+
+    fetch(folderPath)
+        .then(response => response.text())
+        .then(data => {
+            var parser = new DOMParser();
+            var htmlDoc = parser.parseFromString(data, 'text/html');
+            var links = htmlDoc.getElementsByTagName('a');
+
+            var imageNames = [];
+
+            for (var i = 0; i < links.length; i++) {
+                var link = links[i];
+                var fileName = link.getAttribute('href');
+
+                // 过滤非图片文件
+                if (isImageFile(fileName)) {
+                    imageNames.push(fileName);
+                }
+            }
+
+            // console.log('图片文件名列表:', imageNames);
+            // imgs = [...imageNames];
+            // return imgs;
+            imageNames = imageNames.map(i => '/img/' + i);
+            layoutBlocks(imageNames);
+
+        })
+        .catch(error => {
+            console.error('请求出错:', error);
+        });
+
+    function isImageFile(fileName) {
+        var allowedExtensions = ['jpg', 'jpeg', 'png', 'gif'];
+        var fileExtension = fileName.split('.').pop().toLowerCase();
+
+        return allowedExtensions.includes(fileExtension);
+    }
+
+    function layoutBlocks(data) {
+        var colCount = Math.floor(container.offsetWidth / 250);
+        var colHeights = new Array(colCount).fill(0);
+
+        for (var i = 0; i < data.length; i++) {
+            var block = document.createElement('div');
+            block.className = 'block';
+
+
+            var minIndex = colHeights.indexOf(Math.min(...colHeights));
+            block.style.left = minIndex * 250 + 'px';
+            block.style.top = colHeights[minIndex] + 'px';
+
+            var image = document.createElement('img');
+            image.src = data[i];
+            image.style.width = '100%';
+            image.style.height = '100%';
+            image.style.objectFit = 'cover';
+
+            block.appendChild(image);
+            container.appendChild(block);
+            colHeights[minIndex] += 20; // 20px 为间距
+        }
+    }
+    console.log(imgs);
+</script>
 
 </html>
