@@ -1,121 +1,181 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 
 <head>
-    <title>图片瀑布流网页</title>
-    <script src="./tailwindcss.css"></script>
-    <!-- <script src="https://tailwindcss.com/docs/installation"></script> -->
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
     <style>
-        body {
-            margin: 0;
-            padding: 0;
-            font-family: Arial, sans-serif;
+        .waterfall {
+            column-count: 3;
+            /* 设置列数为3 */
+            column-gap: 20px;
+            /* 设置列间距为20px */
+            background-color: rgb(244, 239, 148);
         }
 
-        #container {
+        .item {
+            display: inline-block;
+            /* 设置项为行内块元素 */
+            margin-bottom: 20px;
+            /* 设置项之间的间距为20px */
+        }
+
+        .item img {
             width: 100%;
+            /* 设置图片宽度为100% */
+            height: auto;
+            /* 设置图片高度自适应 */
         }
     </style>
 </head>
 
 <body>
-    <!-- <div id="waterfall-container" class="flex flex-row mx-[20px] flex-wrap ">
-        <div class="basis-1/4 ">
-            <img src="./img/animation.jpg" alt="">
+    <div class="waterfall">
+        <div class="item">
+            <img src="./img//animation.jpg" alt="Image 1">
         </div>
-        <div class=" pl-[20px] basis-1/4">
-            <img src="./img/application.jpg" alt="">
+        <div class="item">
+            <img src="./img//application.jpg" alt="Image 2">
         </div>
-        <div class=" pl-[20px] basis-1/4">
-            <img src="./img/assign.jpg" alt="">
+        <div class="item">
+            <img src="./img//assign.jpg" alt="Image 3">
         </div>
-        <div class=" pl-[20px] basis-1/4 ">
-            <img src="./img/animation.jpg" alt="">
+        <div class="item">
+            <img src="./img/async await in js.jpg" alt="Image 3">
         </div>
-        <div class=" basis-1/4">
-            <img src="./img/animation.jpg" alt="">
+        <div class="item">
+            <img src="./img/audio.jpg" alt="Image 3">
         </div>
-        <div class=" pl-[20px] basis-1/4">
-            <img src="./img/application.jpg" alt="">
+        <div class="item">
+            <img src="./img/background.jpg" alt="Image 3">
         </div>
-        <div class="  pl-[20px] basis-1/4">
-            <img src="./img/assign.jpg" alt="">
+        <div class="item">
+            <img src="./img/build-in-function.jpg" alt="Image 3">
         </div>
-        <div class="  pl-[20px] basis-1/4">
-            <img src="./img/animation.jpg" alt="">
+        <div class="item">
+            <img src="./img/child-selector-css.jpg" alt="Image 3">
         </div>
-    </div> -->
+        <div class="item">
+            <img src="./img/date in js.jpg" alt="Image 3">
+        </div>
+        <div class="item">
+            <img src="./img/entries.jpg" alt="Image 3">
+        </div>
+        <div class="item">
+            <img src="./img/events in js.jpg" alt="Image 3">
+        </div>
+        <div class="item">
+            <img src="./img/every.jpg" alt="Image 3">
+        </div>
+        <div class="item">
+            <img src="./img/font.jpg" alt="Image 3">
+        </div>
+        <div class="item">
+            <img src="./img/forms.jpg" alt="Image 3">
+        </div>
+        <div class="item">
+            <img src="./img/freeze.jpg" alt="Image 3">
+        </div>
+        <div class="item">
+            <img src="./img/games.jpg" alt="Image 3">
+        </div>
+        <div class="item">
+            <img src="./img/git.png" alt="Image 3">
+        </div>
+        <div class="item">
+            <img src="./img/hide in css.jpg" alt="Image 3">
+        </div>
+        <div class="item">
+            <img src="./img/HTML-input.jpg" alt="Image 3">
+        </div>
+        <div class="item">
+            <img src="./img/inset.jpg" alt="Image 3">
+        </div>
+        <div class="item">
+            <img src="./img/javascript-full-stack.jpg" alt="Image 3">
+        </div>
+        <div class="item">
+            <img src="./img/javascript-need-to-study.jpg" alt="Image 3">
+        </div>
+        <div class="item">
+            <img src="./img/js.jpg" alt="Image 3">
+        </div>
+        <div class="item">
+            <img src="./img/keys.jpg" alt="Image 3">
+        </div>
+        <div class="item">
+            <img src="./img/linux-file-system.jpg" alt="Image 3">
+        </div>
+        <div class="item">
+            <img src="./img/margin.jpg" alt="Image 3">
+        </div>
+        <div class="item">
+            <img src="./img/object in js.jpg" alt="Image 3">
+        </div>
+        <div class="item">
+            <img src="./img/padding.jpg" alt="Image 3">
+        </div>
+        <div class="item">
+            <img src="./img/reduce.jpg" alt="Image 3">
+        </div>
+        <div class="item">
+            <img src="./img/scope in js.jpg" alt="Image 3">
+        </div>
+        <div class="item">
+            <img src="./img/some.jpg" alt="Image 3">
+        </div>
+        <div class="item">
+            <img src="./img/sql-regexp-extract.jpg" alt="Image 3">
+        </div>
+        <div class="item">
+            <img src="./img/sql-regexp-like.jpg" alt="Image 3">
+        </div>
+        <div class="item">
+            <img src="./img/string-methods.png" alt="Image 3">
+        </div>
+        <div class="item">
+            <img src="./img/tags in html.jpg" alt="Image 3">
+        </div>
+        <div class="item">
+            <img src="./img/text-decoration.jpg" alt="Image 3">
+        </div>
+        <div class="item">
+            <img src="./img/transition.jpg" alt="Image 3">
+        </div>
+        <div class="item">
+            <img src="./img/values.jpg" alt="Image 3">
+        </div>
+        <div class="item">
+            <img src="./img/video.jpg" alt="Image 3">
+        </div>
+        <div class="item">
+            <img src="./img/visualization.jpg" alt="Image 3">
+        </div>
+        <div class="item">
+            <img src="./img/去除数组重复项.jpg" alt="Image 3">
+        </div>
+        <div class="item">
+            <img src="./img/合并数组.jpg" alt="Image 3">
+        </div>
+        <div class="item">
+            <img src="./img/复制到剪贴板.png" alt="Image 3">
+        </div>
+        <div class="item">
+            <img src="./img/数组方法.jpg" alt="Image 3">
+        </div>
+        <div class="item">
+            <img src="./img/数组方法1.jpg" alt="Image 3">
+        </div>
+        <div class="item">
+            <img src="./img/数组方法2.jpg" alt="Image 3">
+        </div>
+        <div class="item">
+            <img src="./img/重置数组.jpg" alt="Image 3">
+        </div>
+    </div>
 
-    <div id="container" class="min-w-[1150px]"></div>
 </body>
-<script>
-    var container = document.getElementById('container');
-    // console.dir(container);
-    var imgs = [];
-    var folderPath = 'img/'; // 指定文件夹路径
-
-    fetch(folderPath)
-        .then(response => response.text())
-        .then(data => {
-            var parser = new DOMParser();
-            var htmlDoc = parser.parseFromString(data, 'text/html');
-            var links = htmlDoc.getElementsByTagName('a');
-
-            var imageNames = [];
-
-            for (var i = 0; i < links.length; i++) {
-                var link = links[i];
-                var fileName = link.getAttribute('href');
-
-                // 过滤非图片文件
-                if (isImageFile(fileName)) {
-                    imageNames.push(fileName);
-                }
-            }
-
-            // console.log('图片文件名列表:', imageNames);
-            // imgs = [...imageNames];
-            // return imgs;
-            imageNames = imageNames.map(i => '/img/' + i);
-            layoutBlocks(imageNames);
-
-        })
-        .catch(error => {
-            console.error('请求出错:', error);
-        });
-
-    function isImageFile(fileName) {
-        var allowedExtensions = ['jpg', 'jpeg', 'png', 'gif'];
-        var fileExtension = fileName.split('.').pop().toLowerCase();
-
-        return allowedExtensions.includes(fileExtension);
-    }
-
-    function layoutBlocks(data) {
-        var colCount = Math.floor(container.offsetWidth / 250);
-        var colHeights = new Array(colCount).fill(0);
-
-        for (var i = 0; i < data.length; i++) {
-            var block = document.createElement('div');
-            block.className = 'block';
-
-
-            var minIndex = colHeights.indexOf(Math.min(...colHeights));
-            block.style.left = minIndex * 250 + 'px';
-            block.style.top = colHeights[minIndex] + 'px';
-
-            var image = document.createElement('img');
-            image.src = data[i];
-            image.style.width = '100%';
-            image.style.height = '100%';
-            image.style.objectFit = 'cover';
-
-            block.appendChild(image);
-            container.appendChild(block);
-            colHeights[minIndex] += 20; // 20px 为间距
-        }
-    }
-    console.log(imgs);
-</script>
 
 </html>
