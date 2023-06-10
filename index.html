@@ -33,6 +33,15 @@
             height: auto;
             /* 设置图片高度自适应 */
         }
+
+        .showimg {
+            background-color: blueviolet;
+            position: absolute;
+            z-index: 9999;
+            /* display: none; */
+            /* width: 100vw;
+            height: 100vh; */
+        }
     </style>
 </head>
 
@@ -179,8 +188,86 @@
         <div class="item">
             <img src="./img/重置数组.jpg" alt="Image 3">
         </div>
+        <div class="item">
+            <img src="./img/autocomplete-contenteditable.jpg" alt="Image 3">
+        </div>
+        <div class="item">
+            <img src="./img/ip.jpg" alt="Image 3">
+        </div>
+        <div class="item">
+            <img src="./img/media-sandbox.jpg" alt="Image 3">
+        </div>
+        <div class="item">
+            <img src="./img/rel-download.jpg" alt="Image 3">
+        </div>
+        <div class="item">
+            <img src="./img/required-disabled.jpg" alt="Image 3">
+        </div>
+        <div class="item">
+            <img src="./img/spellcheck-translate.jpg" alt="Image 3">
+        </div>
+        <div class="item">
+            <img src="./img/tabindex-size.jpg" alt="Image 3">
+        </div>
+        <div class="item">
+            <img src="./img/target-srcset.jpg" alt="Image 3">
+        </div>
     </div>
-
+    <div id="show" class="showimg"><img src="" alt=""></div>
 </body>
+<script>
+    var container = document.getElementsByClassName('waterfall');
+    // console.log(container);
+    var items = document.getElementsByClassName("item");
+    // console.log(items);
+    var show = document.getElementById('show');
+    var showimg = show.getElementsByTagName('img')[0];
+
+
+    // console.log(show);
+    for (let index = 0; index < items.length; index++) {
+        const element = items[index];
+        element.addEventListener("click", function (event) {
+
+            var imgurl = element.getElementsByTagName('img')[0].src;
+            // element.appendChild(img);
+            // var regex = /img/g;
+            // var matches = imgurl.match(regex);
+            var result = imgurl.substring(imgurl.lastIndexOf("/img"));
+            console.log(result);
+            var mouseX = event.pageX;
+            var mouseY = event.pageY;
+            // console.log(mouseX, mouseY);
+            var pageWidth = window.innerWidth || document.documentElement.clientWidth || document.body
+                .clientWidth;
+            var pageHeight = window.innerHeight || document.documentElement.clientHeight || document.body
+                .clientHeight;
+            // console.log(pageWidth, pageHeight);
+
+            show.style.left = mouseX + 'px';
+            show.style.top = mouseY + 'px';
+            // show.removeChild()
+            while (show.firstChild) {
+                show.removeChild(show.firstChild);
+            }
+            // var img = `"<img src=". imgurl." >"`
+            showimg.src = result;
+            // console.log(imgurl);
+
+            // showimg.style
+            show.appendChild(showimg);
+
+
+        })
+        // show.addEventListener('click', function () {
+        //     show.style.display = 'none'
+        // })
+
+    }
+
+    // container.addEventListener('click', function () {
+    //     show.style.display = none;
+    // })
+</script>
 
 </html>
